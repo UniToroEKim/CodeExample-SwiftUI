@@ -7,8 +7,9 @@
 
 import Foundation
 
-enum FirebaseCollection:String {
+enum FIRCollection:String {
 	case flights = "Flights"
+	case planes = "Planes"
 	
 	func callAsFunction() -> String {
 		return self.rawValue

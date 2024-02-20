@@ -20,4 +20,5 @@ struct Flight: Identifiable, Codable {
 	var formArrivalDate: String { DateFormatterUtil.shared.short(arrivalTime) }
 	var formDepartureTime: String { DateFormatterUtil.shared.time(departureTime) }
 	var formArrivalTime: String { DateFormatterUtil.shared.time(arrivalTime) }
+	var plane: String
 }

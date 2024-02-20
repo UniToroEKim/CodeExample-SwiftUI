@@ -45,7 +45,11 @@
 		E5FBA0382B83F3B60075F6F0 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E5FBA0372B83F3B60075F6F0 /* FirebaseStorageCombine-Community */; };
 		E5FBA03A2B83F61E0075F6F0 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FBA0392B83F61E0075F6F0 /* Firebase.swift */; };
 		E5FBA03C2B83F8BB0075F6F0 /* FlightsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FBA03B2B83F8BB0075F6F0 /* FlightsApp.swift */; };
-		E5FBA03E2B840AE90075F6F0 /* DateFormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FBA03D2B840AE90075F6F0 /* DateFormatterUtil.swift */; };
+		E5FBA03E2B840AE90075F6F0 /* FormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FBA03D2B840AE90075F6F0 /* FormatterUtil.swift */; };
+		E5FBA0C12B844D5A0075F6F0 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FBA0C02B844D5A0075F6F0 /* Plane.swift */; };
+		E5FBA0C32B844D640075F6F0 /* PlaneService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FBA0C22B844D640075F6F0 /* PlaneService.swift */; };
+		E5FBA0C62B8451EA0075F6F0 /* FlightDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FBA0C52B8451EA0075F6F0 /* FlightDetailsView.swift */; };
+		E5FBA0C82B8455160075F6F0 /* FlightDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FBA0C72B8455160075F6F0 /* FlightDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +65,11 @@
 		E58A26CC2B83F1A400EE6576 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5FBA0392B83F61E0075F6F0 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		E5FBA03B2B83F8BB0075F6F0 /* FlightsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsApp.swift; sourceTree = "<group>"; };
-		E5FBA03D2B840AE90075F6F0 /* DateFormatterUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterUtil.swift; sourceTree = "<group>"; };
+		E5FBA03D2B840AE90075F6F0 /* FormatterUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterUtil.swift; sourceTree = "<group>"; };
+		E5FBA0C02B844D5A0075F6F0 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
+		E5FBA0C22B844D640075F6F0 /* PlaneService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneService.swift; sourceTree = "<group>"; };
+		E5FBA0C52B8451EA0075F6F0 /* FlightDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailsView.swift; sourceTree = "<group>"; };
+		E5FBA0C72B8455160075F6F0 /* FlightDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				E5FBA0392B83F61E0075F6F0 /* Firebase.swift */,
-				E5FBA03D2B840AE90075F6F0 /* DateFormatterUtil.swift */,
+				E5FBA03D2B840AE90075F6F0 /* FormatterUtil.swift */,
+				E5FBA0C42B844D680075F6F0 /* Planes */,
 				E58A26C02B83EEA200EE6576 /* Flights */,
 			);
 			path = Services;
@@ -173,8 +182,19 @@
 			children = (
 				E58A26CA2B83F19600EE6576 /* FlightsView.swift */,
 				E58A26C72B83EECF00EE6576 /* FlightsViewModel.swift */,
+				E5FBA0C52B8451EA0075F6F0 /* FlightDetailsView.swift */,
+				E5FBA0C72B8455160075F6F0 /* FlightDetailsViewModel.swift */,
 			);
 			path = Flights;
+			sourceTree = "<group>";
+		};
+		E5FBA0C42B844D680075F6F0 /* Planes */ = {
+			isa = PBXGroup;
+			children = (
+				E5FBA0C02B844D5A0075F6F0 /* Plane.swift */,
+				E5FBA0C22B844D640075F6F0 /* PlaneService.swift */,
+			);
+			path = Planes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,10 +301,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5FBA03A2B83F61E0075F6F0 /* Firebase.swift in Sources */,
+				E5FBA0C62B8451EA0075F6F0 /* FlightDetailsView.swift in Sources */,
+				E5FBA0C32B844D640075F6F0 /* PlaneService.swift in Sources */,
 				E58A26C22B83EEAD00EE6576 /* Flight.swift in Sources */,
+				E5FBA0C82B8455160075F6F0 /* FlightDetailsViewModel.swift in Sources */,
+				E5FBA0C12B844D5A0075F6F0 /* Plane.swift in Sources */,
 				E58A26B12B83DEA200EE6576 /* ContentView.swift in Sources */,
 				E58A26AF2B83DEA200EE6576 /* CodeExample_SwiftUIApp.swift in Sources */,
-				E5FBA03E2B840AE90075F6F0 /* DateFormatterUtil.swift in Sources */,
+				E5FBA03E2B840AE90075F6F0 /* FormatterUtil.swift in Sources */,
 				E58A26C82B83EECF00EE6576 /* FlightsViewModel.swift in Sources */,
 				E5FBA03C2B83F8BB0075F6F0 /* FlightsApp.swift in Sources */,
 				E58A26CB2B83F19600EE6576 /* FlightsView.swift in Sources */,

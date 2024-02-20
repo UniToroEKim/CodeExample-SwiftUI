@@ -11,12 +11,12 @@ import Firebase
 class FlightService {
 	static let shared = FlightService()
 	private let db = Firestore.firestore()
-	private let flightsCollection = "flights"
+	private let collectionID = FIRCollection.flights()
 	
 	private var listener: ListenerRegistration?
 	
 	func startListening( completion: @escaping ([Flight]) -> Void) {
-		let ref = db.collection(FirebaseCollection.flights())
+		let ref = db.collection(collectionID)
 		listener = ref.addSnapshotListener { querySnapshot, error in
 			guard let documents = querySnapshot?.documents else {
 				print("No documents")
@@ -42,9 +42,9 @@ class FlightService {
 	}
 	
 	func getFlights(completion: @escaping ([Flight]) -> Void) {
-		db.collection(flightsCollection).getDocuments { snapshot, error in
+		db.collection(collectionID).getDocuments { snapshot, error in
 			guard let documents = snapshot?.documents else {
-				print("Error fetching documents: \(error)")
+				print("Error fetching documents: \(String(describing: error))")
 				completion([])
 				return
 			}
@@ -58,8 +58,9 @@ class FlightService {
 					return nil
 				}
 			}
-			
-			completion(flights)
+			DispatchQueue.main.async {
+				completion(flights)
+			}
 		}
 	}
 	

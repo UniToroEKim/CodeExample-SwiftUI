@@ -38,3 +38,18 @@ class DateFormatterUtil {
 		return formatter.string(from: date)
 	}
 }
+
+class NumberFormatterUtil {
+	static let shared = NumberFormatterUtil()
+	
+	private let formatter = NumberFormatter()
+	
+	init() {
+		formatter.numberStyle = .decimal
+		formatter.locale = Locale(identifier: "en_US_POSIX")
+	}
+	
+	func year(_ number: Int) -> String? {
+		return formatter.string(from: NSNumber(value: number))
+	}
+}

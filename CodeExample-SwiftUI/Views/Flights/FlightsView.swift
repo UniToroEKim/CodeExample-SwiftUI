@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FlightsView: View {
-	@State var model = FlightsViewModel()
+	@Environment(FlightsViewModel.self) var model
 	@State private var searchText = ""
 	
 	var filteredFlights: [Flight] {
@@ -29,36 +29,12 @@ struct FlightsView: View {
 		List {
 			Section {
 				ForEach(filteredFlights) { flight in
-					VStack(spacing:6) {
-						HStack {
-							Text(flight.number).bold()
-							Spacer()
-							Text("\(flight.departureAirport)→\(flight.arrivalAirport)").bold()
-						}
-						HStack {
-							VStack {
-								HStack {
-									Text("Depart:")
-									Text(flight.formDepartureTime).bold()
-								}
-								// TODO: Figure out if should display date or adjust layout to be for a specific day
-								//Text(flight.formDepartureDate).font(.caption)
-							}
-							Spacer()
-							VStack {
-								HStack {
-									Text("Arrive:")
-									Text(flight.formArrivalTime).bold()
-								}
-								//Text(flight.formArrivalDate).font(.caption)
-							}
-						}
-						HStack {
-							Spacer()
-							Text(flight.id ?? "").font(.caption).foregroundStyle(.gray)
-						}
-						
+					NavigationLink(value: FlightRouter.flightDetails(flight.plane)) {
+						FlightView(flight: flight)
+							
 					}
+					.listRowBackground(Color(UIColor.systemBackground))
+					
 				}
 			} header: {
 				Text("United Airlines")
@@ -75,3 +51,38 @@ struct FlightsView: View {
     }
 }
 
+struct FlightView: View {
+	var flight: Flight
+	
+	var body: some View {
+		VStack(spacing: 6) {
+			HStack {
+				Text(flight.number).bold()
+				Spacer()
+				Text("\(flight.departureAirport)→\(flight.arrivalAirport)").bold()
+			}
+			HStack {
+				VStack {
+					HStack {
+						Text("Depart:")
+						Text(flight.formDepartureTime).bold()
+					}
+					// TODO: Figure out if should display date or adjust layout to be for a specific day
+					//Text(flight.formDepartureDate).font(.caption)
+				}
+				Spacer()
+				VStack {
+					HStack {
+						Text("Arrive:")
+						Text(flight.formArrivalTime).bold()
+					}
+					//Text(flight.formArrivalDate).font(.caption)
+				}
+			}
+			HStack {
+				Spacer()
+				Text(flight.id ?? "").font(.caption).foregroundStyle(.gray)
+			}
+		}
+	}
+}
